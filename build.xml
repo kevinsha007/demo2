@@ -260,12 +260,12 @@
 
   <property name="phpdox.done" value="true"/>
  </target>
- 
+
  <target name="createtar"
           unless="lint.done"
           depends="prepare"
           description="Creating Compresed archive">
-     <tar destfile="${basedir}/build/archive/wpdemo-stable.tar.gz" basedir="${basedir}/src" compression="gzip"\>
+     <tar destfile="${basedir}/build/archive/wpdemo-stable.tar.gz" basedir="${basedir}/src" compression="gzip"/>
      <property name="createtar.done" value="true"/>
  </target>
 
