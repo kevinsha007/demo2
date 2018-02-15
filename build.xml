@@ -62,6 +62,7 @@
          unless="clean.done"
          description="Cleanup build artifacts">
   <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/build/archive"/>
   <delete dir="${basedir}/build/coverage"/>
   <delete dir="${basedir}/build/logs"/>
   <delete dir="${basedir}/build/pdepend"/>
@@ -74,6 +75,7 @@
          depends="clean"
          description="Prepare for build">
   <mkdir dir="${basedir}/build/api"/>
+  <mkdir dir="${basedir}/build/archive"/>
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/logs"/>
   <mkdir dir="${basedir}/build/pdepend"/>
@@ -258,6 +260,15 @@
 
   <property name="phpdox.done" value="true"/>
  </target>
+ 
+ <target name="createtar"
+          unless="lint.done"
+          depends="prepare"
+          description="Creating Compresed archive">
+     <tar destfile="${basedir}/build/archive/wpdemo-stable.tar.gz" basedir="${basedir}/src" compression="gzip"\>
+     <property name="createtar.done" value="true"/>
+ </target>
+
 
  <target name="-check-failure">
   <fail message="PHPUnit did not finish successfully">
@@ -269,4 +280,3 @@
   </fail>
  </target>
 </project>
-
