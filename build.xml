@@ -262,7 +262,7 @@
  </target>
 
  <target name="createtar"
-          unless="lint.done"
+          unless="createtar.done"
           depends="prepare"
           description="Creating Compresed archive">
      <tar destfile="${basedir}/build/archive/wpdemo-stable.tar.gz" basedir="${basedir}/src" compression="gzip"/>
